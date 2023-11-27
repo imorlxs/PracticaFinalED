@@ -7,26 +7,33 @@ using namespace std;
 
 Punto::Punto() : Punto(0, 0) {}
 
-Punto::Punto(int fila, int col) : f(fila), c(col) {}
-
-int Punto::getCol() const{
-    return c;
+Punto::Punto(float lat, float lon){
+    latitud = lat;
+    longitud = lon;
 }
 
-int Punto::getFila() const{
-    return f;
+Punto::float getLatitud() const{
+    return latitud;
 }
 
-void Punto::setCol(int col) {
-    c=col;
+void Punto::setLatitud(int lat){
+    latitud = lat;
 }
 
-void Punto::setFila(int fila) {
-    f=fil;
+float Punto::getLongitud() const{
+    return longitud;
 }
 
-int Punto::getPunto() const {
-    return std::make_pair(f, c);
+void Punto::setLongitud(int lon){
+    longitud = lon;
+}
+
+Punto::pair<float, float> getPunto() const{
+    return make_pair(latitud, longitud);
+}
+
+string Punto::toString(){
+    return latitud + " , " + longitud;
 }
 
 

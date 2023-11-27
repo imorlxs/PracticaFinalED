@@ -4,26 +4,28 @@
 
 #ifndef PRACTICAFINALED_PUNTO_H
 #define PRACTICAFINALED_PUNTO_H
-
+#include "string"
 using namespace std;
 
 class Punto {
 private:
-    int f, c;
+    float latitud, longitud;
 public:
     Punto();
 
-    Punto(int fila, int col);
+    Punto(float lat, float lon);
 
-    int getFila() const;
+    float getLatitud() const;
 
-    void setFila(int fila);
+    void setLatitud(int lat);
 
-    int getCol() const;
+    float getLongitud() const;
 
-    void setCol(int col);
+    void setLongitud(int lon);
 
-    pair<int, int> getPunto() const;
+    pair<float, float> getPunto() const;
+
+    string toString();
 };
 
 
