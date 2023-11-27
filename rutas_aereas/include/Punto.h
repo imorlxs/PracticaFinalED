@@ -9,23 +9,29 @@ using namespace std;
 
 class Punto {
 private:
-    float latitud, longitud;
+    double latitud, longitud;
 public:
-    Punto();
+    Punto(){
+        latitud = longitud = 0;
+    }
 
-    Punto(float lat, float lon);
+    Punto(float lat, float lon, const string &d): latitud(lat), longitud(lon){}
 
-    float getLatitud() const;
+    double getLatitud() const;
 
-    void setLatitud(int lat);
+    void setLatitud(double lat);
 
-    float getLongitud() const;
+    double getLongitud() const;
 
-    void setLongitud(int lon);
+    void setLongitud(double lon);
 
-    pair<float, float> getPunto() const;
+    bool operator < (const Punto &p) const;
 
-    string toString();
+    bool operator == (const Punto &p) const;
+
+    friend istream &operator >>(istream &is, Punto &p);
+
+    friend ostream &operator << (ostream &os, const Punto &p);
 };
 
 

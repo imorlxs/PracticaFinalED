@@ -14,15 +14,13 @@ string Pais::GetBandera()const{
     return bandera;
 }
 
-bool operator<(const Pais &P)const{
-    ..............
+bool Pais::operator<(const Pais &P)const{
+    return (p < P.getPunto());
 }
-bool operator==(const Pais &P)const{
-    ..................
+bool Pais::operator==(const Pais &P)const{
+    return (p == P.getPunto());
 }
-bool operator==(const Punto &P)const{
-    ..................
-}
+
 friend istream & operator>>(istream & is, Pais & P){
     double lat,lng;
 

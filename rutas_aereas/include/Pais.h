@@ -4,8 +4,12 @@
 
 #ifndef PRACTICAFINALED_PAIS_H
 #define PRACTICAFINALED_PAIS_H
+
 using namespace std;
+
 #include "string"
+#include "Punto.h"
+
 
 class Pais{
 private:
@@ -14,10 +18,10 @@ private:
     string bandera;
 
 public:
-    Pais();
-    Punto GetPunto()const;
-    string GetPais()const;
-    string GetBandera()const;
+    Pais(){}
+    Punto GetPunto() const;
+    string GetPais() const;
+    string GetBandera() const;
 
     bool operator<(const Pais &P)const;
 

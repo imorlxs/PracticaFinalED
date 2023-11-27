@@ -5,35 +5,44 @@
 #include "../include/Punto.h"
 using namespace std;
 
-Punto::Punto() : Punto(0, 0) {}
 
-Punto::Punto(float lat, float lon){
-    latitud = lat;
-    longitud = lon;
-}
 
-Punto::float getLatitud() const{
+Punto::double getLatitud() const{
     return latitud;
 }
 
-void Punto::setLatitud(int lat){
+void Punto::setLatitud(double lat){
     latitud = lat;
 }
 
-float Punto::getLongitud() const{
+double Punto::getLongitud() const{
     return longitud;
 }
 
-void Punto::setLongitud(int lon){
+void Punto::setLongitud(double lon){
     longitud = lon;
 }
 
-Punto::pair<float, float> getPunto() const{
-    return make_pair(latitud, longitud);
+bool Punto::operator<(const Punto &p) const {
+    return (this.latitud < p.getLatitud() || (this.latitud == p.getLatitud() && this.longitud < p.getLongitud()));
 }
 
-string Punto::toString(){
-    return latitud + " , " + longitud;
+bool Punto::operator==(const Punto &p) const {
+    return (this.latitud == p.getLatitud() && longitud == p.getLongitud());
 }
 
+friend istream &operator >>(istream &is, Punto &p){
+    double lat,lng;
+
+    is>>lat>>lng;
+    p=Punto(lat,lng,"");
+
+    return is;
+}
+
+friend ostream &operator <<(ostream &os, Punto &p){
+    os<<p.latitud<<" "<<p.longitud<<endl;
+
+    return os;
+}
 
