@@ -47,23 +47,23 @@ public:
 
 iterator Ruta::begin(){
     iterator it;
-    it.p = datos.begin();
+    it.p = puntos.begin();
     return it;
 }
 
 const_iterator Ruta::begin()const{
     const_iterator it;
-    it.p = datos.cbegin();
+    it.p = puntos.cbegin();
     return it;
 }
 iterator Ruta::end(){
     iterator it;
-    it.p = datos.end();
+    it.p = puntos.end();
     return it;
 }
 const_iterator Ruta::end()const{
     const_iterator it;
-    it.p = datos.cend();
+    it.p = puntos.cend();
     return it;
 }
 
