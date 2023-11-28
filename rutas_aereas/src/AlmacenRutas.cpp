@@ -3,3 +3,6 @@
 //
 
 #include "../include/AlmacenRutas.h"
+#include "AlmacenRutas.h"
+using namespace std;
+

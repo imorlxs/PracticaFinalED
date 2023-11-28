@@ -6,9 +6,4 @@
 #define PRACTICAFINALED_ALMACENRUTAS_H
 
 
-class AlmacenRutas {
-
-};
-
-
 #endif //PRACTICAFINALED_ALMACENRUTAS_H

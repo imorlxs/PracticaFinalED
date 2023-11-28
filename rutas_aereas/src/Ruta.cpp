@@ -14,12 +14,10 @@ void Ruta::Insertar(const Punto &n){
 }
 
 void Ruta::Borrar(const Punto &n){
-    if (find(n) >= 0 && find(n) < puntos.size()){
-        int pos = find(n);
-        puntos.erase(pos);
-    }
-
+    if (find(n) != puntos.end())
+        puntos.erase(n);
 }
+
 
 string Ruta::GetCode() const{
     return code;
@@ -48,17 +46,25 @@ public:
 };
 
 iterator Ruta::begin(){
-    return puntos.begin();
-}
-const_iterator Ruta::begin() const{
-    return puntos.cbegin();
+    iterator it;
+    it.p = datos.begin();
+    return it;
 }
 
-iterator Ruta::end(){
-    return puntos.end();
+const_iterator Ruta::begin()const{
+    const_iterator it;
+    it.p = datos.cbegin();
+    return it;
 }
-const_iterator Ruta::end() const{
-    return puntos.cend();
+iterator Ruta::end(){
+    iterator it;
+    it.p = datos.end();
+    return it;
+}
+const_iterator Ruta::end()const{
+    const_iterator it;
+    it.p = datos.cend();
+    return it;
 }
 
 iterator Ruta::find(const Punto &p){
@@ -75,5 +81,26 @@ iterator Ruta::find(const Punto &p){
     return pos;
 }
 
-friend istream &operator >>(istream &is, Ruta &r);
-friend ostream &operator <<(ostream &os, Ruta &r);
+friend istream &operator >>(istream &is, Ruta &r){
+    Ruta ruta;
+    //leemos el comentario
+    if (is.peek()=='#'){
+        string a;
+        getline(is,a);
+    }
+
+    Punto puntos;
+    while (is>>puntos){
+        ruta.Insertar(P);
+    }
+    r=ruta;
+    return is;
+}
+
+friend ostream &operator <<(ostream &os, Ruta &r){
+    Ruta::const_iterator it;
+    for (it=r.begin(); it!=r.end(); ++it){
+        os<<*it<<"\t";
+    }
+    return os;
+}
