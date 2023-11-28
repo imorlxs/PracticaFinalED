@@ -28,13 +28,22 @@ public:
     private:
         list<Punto>::iterator  p;
     public:
-        //....................
+        iterator();
+        bool operator == (const iterator &it);
+        bool operator != (const iterator &it);
+        bool operator ++ (const iterator &it);
+        bool operator * (const iterator &it);
+
     };
     class const_iterator{
     private:
         list<Punto>::const_iterator p;
     public:
-        //....................
+        const_iterator();
+        bool operator == (const iterator &it);
+        bool operator != (const iterator &it);
+        bool operator ++ (const iterator &it);
+        bool operator * (const iterator &it);
     };
 
     iterator begin();

@@ -8,6 +8,7 @@ void Paises::Insertar(const Pais &P){
     datos.insert(P);
 }
 
+
 void Paises::Borrar(const Pais &P){
     if (this->datos.find(P) != this->datos.end())
         datos.erase(P);

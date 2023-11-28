@@ -18,13 +18,12 @@ void Ruta::Borrar(const Punto &n){
         puntos.erase(n);
 }
 
-
 string Ruta::GetCode() const{
     return code;
 }
 
 void Ruta::SetCode( const string &code){
-    this.code = code;
+    this->code = code;
 }
 
 bool Ruta::operator == (const Ruta &r) const;
@@ -32,42 +31,40 @@ bool Ruta::operator == (const Ruta &r) const;
 bool operator < (const Ruta &r) const;
 
 
-class iterator{
-private:
-    list<Punto>::iterator  p;
-public:
-    //....................
-};
-class const_iterator{
-private:
-    list<Punto>::const_iterator p;
-public:
-    //....................
-};
+Ruta::iterator::iterator() {}
+bool Ruta::iterator::operator == (const iterator &it){
 
-iterator Ruta::begin(){
+}
+bool Ruta::iterator::operator != (const iterator &it){
+    return (this->p != it);
+}
+bool Ruta::iterator::operator ++ (const iterator &it){
+    ++p;
+    return (*this);
+}
+bool Ruta::iterator::operator * (const iterator &it){}
+
+Ruta::iterator Ruta::begin(){
     iterator it;
     it.p = puntos.begin();
     return it;
 }
 
-const_iterator Ruta::begin()const{
+Ruta::const_iterator Ruta::begin()const{
     const_iterator it;
     it.p = puntos.cbegin();
     return it;
 }
-iterator Ruta::end(){
+Ruta::iterator Ruta::end(){
     iterator it;
     it.p = puntos.end();
     return it;
 }
-const_iterator Ruta::end()const{
-    const_iterator it;
-    it.p = puntos.cend();
-    return it;
+Ruta::const_iterator Ruta::end()const{
+    return puntos.cend();
 }
 
-iterator Ruta::find(const Punto &p){
+Ruta::iterator Ruta::find(const Punto &p){
     int pos;
     bool encontrado = false;
 

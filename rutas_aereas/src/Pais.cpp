@@ -3,6 +3,8 @@
 //
 
 #include "Pais.h"
+using namespace std;
+#include "iostream"
 
 Punto Pais::GetPunto()const {
     return p;
@@ -15,13 +17,13 @@ string Pais::GetBandera()const{
 }
 
 bool Pais::operator<(const Pais &P)const{
-    return (p < P.getPunto());
+    return (this->p < P.GetPunto());
 }
 bool Pais::operator==(const Pais &P)const{
-    return (p == P.getPunto());
+    return (p == P.GetPunto());
 }
 
-friend istream & operator>>(istream & is, Pais & P){
+istream & operator>>(istream & is, Pais & P){
     double lat,lng;
 
     is>>lat>>lng>>P.pais>>P.bandera;
@@ -29,7 +31,7 @@ friend istream & operator>>(istream & is, Pais & P){
     P.p=Punto(lat,lng,"");
     return is;
 }
-friend ostream & operator<<(ostream & os, const Pais &P){
+ostream & operator<<(ostream & os, const Pais &P){
     os<<P.p<<" "<<P.pais<<" "<<P.bandera<<endl;
     return os;
 }

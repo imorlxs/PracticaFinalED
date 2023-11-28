@@ -4,10 +4,9 @@
 
 #include "../include/Punto.h"
 using namespace std;
+#include "iostream"
 
-
-
-Punto::double getLatitud() const{
+double Punto::getLatitud() const{
     return latitud;
 }
 
@@ -24,14 +23,14 @@ void Punto::setLongitud(double lon){
 }
 
 bool Punto::operator<(const Punto &p) const {
-    return (this.latitud < p.getLatitud() || (this.latitud == p.getLatitud() && this.longitud < p.getLongitud()));
+    return (this->latitud < p.getLatitud() || (this->latitud == p.getLatitud() && this->longitud < p.getLongitud()));
 }
 
 bool Punto::operator==(const Punto &p) const {
-    return (this.latitud == p.getLatitud() && longitud == p.getLongitud());
+    return (this->latitud == p.getLatitud() && this->longitud == p.getLongitud());
 }
 
-friend istream &operator >>(istream &is, Punto &p){
+istream &operator >>(istream &is, Punto &p){
     double lat,lng;
 
     is>>lat>>lng;
@@ -40,8 +39,8 @@ friend istream &operator >>(istream &is, Punto &p){
     return is;
 }
 
-friend ostream &operator <<(ostream &os, Punto &p){
-    os<<p.latitud<<" "<<p.longitud<<endl;
+ostream &operator <<(ostream &os, Punto &p){
+    os<<p.getLatitud()<<" "<<p.getLongitud()<<endl;
 
     return os;
 }
