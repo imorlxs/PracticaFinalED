@@ -48,7 +48,17 @@ public:
     int num_filas()const{return nf;}
     int num_cols()const{return nc;}
     void PutImagen(int posi,int posj, const Imagen &I,Tipo_Pegado tippegado=OPACO);
-    Imagen ExtraeImagen(int posi,int posj,int dimi,int dimj);
+
+    /**
+     * @brief Crea a partir de una imagen otra igual o de menor tamaño
+     * @param posi Fila de la coordenada superior izquierda de la nueva imagen respecto a la anterior
+     * @param posj Columna de la coordenada superior izquierda de la nueva imagen respecto a la anterior
+     * @param dimi Número de filas de la nueva imagen
+     * @param dimj Número de columnas de la nueva imagen
+     * @return Una nueva imagen
+     * @post La imagen original no se modifica.
+     */
+    Imagen ExtraeImagen(int posi,int posj,int dimi,int dimj) const;
 
     bool Empty() const;
 };

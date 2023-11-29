@@ -13,12 +13,12 @@ Imagen::Imagen(int f, int c) {
     Initialize(f, c);
 }
 
-Imagen::Imagen(const Imagen & I){
+Imagen::Imagen(const Imagen &I) {
     assert (this != &I);
     Copiar(I);
 }
 
-Imagen::~Imagen(){
+Imagen::~Imagen() {
     Borrar();
 }
 
@@ -161,19 +161,19 @@ void Imagen::PutImagen(int posi, int posj, const Imagen &I, Tipo_Pegado tippegad
 
 void Imagen::Copiar(const Imagen &I) {
     Initialize(I.nf, I.nc);
-    for (int i = 0; i < I.nf; i++){
+    for (int i = 0; i < I.nf; i++) {
         for (int j = 0; j < I.nc; j++)
             (*this)(i, j) = I(i, j);
     }
 }
 
-bool Imagen::Empty() const{
+bool Imagen::Empty() const {
     return (nf == 0 || nc == 0);
 }
 
 void Imagen::Borrar() {
-    if (!Empty()){
-        for(int i = 0; i < nc; i++){
+    if (!Empty()) {
+        for (int i = 0; i < nc; i++) {
             delete[] data[i];
         }
         delete[] data;
@@ -182,11 +182,36 @@ void Imagen::Borrar() {
 }
 
 Imagen &Imagen::operator=(const Imagen &I) {
-    if (this != &I){
+    if (this != &I) {
         Borrar();
         Copiar(I);
     }
     return *this;
+}
+
+void Imagen::LimpiarTransp() {
+    for (int i = 0; i < nf; i++) {
+        for (int j = 0; j < nc; j++) {
+            (*this)(i, j).transp = 0;
+        }
+    }
+}
+
+Imagen Imagen::ExtraeImagen(int posi, int posj, int dimi, int dimj) const {
+    // Verificamos que la imagen que se desa crear sea de igual o menor tamaño.
+    assert (dimi < nf - posi);
+    assert (dimj < nc - posj);
+
+    // Creamos la imagen resutlante
+    Imagen subimagen(dimi, dimj);
+
+    // Copiamos los elementos seleccionados en la nueva imagen
+    for (int i = posi; i < dimi + nf; i++){
+        for (int j = posj; j < dimj + nc; j++)
+            subimagen(i - posi, j - posj) = (*this)(i,j);
+    }
+
+    return subimagen;
 }
 
 
