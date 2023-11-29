@@ -26,61 +26,71 @@ void Ruta::SetCode( const string &code){
     this->code = code;
 }
 
-bool Ruta::operator == (const Ruta &r) const;
+bool Ruta::operator == (const Ruta &r) const{
+    if(this->puntos.size() == r.puntos.size()){
+        list<Punto>::iterator it = this->puntos.begin();
+        list<Punto>::iterator it_r = r.puntos.begin();
+        bool iguales = true;
+        while ((it != puntos.end()) && !iguales){
+            if (*it != *it_r) iguales = false;
+            ++it;
+            ++it_r;
+        }
+        return iguales;
+    }
+    return false;
+}
 
-bool operator < (const Ruta &r) const;
-
+bool Ruta::operator < (const Ruta &r) const{
+    return (this->puntos.size() < r.puntos.size());
+}
 
 Ruta::iterator::iterator() {}
-bool Ruta::iterator::operator == (const iterator &it){
 
+bool Ruta::iterator::operator== (const Punto &punto){
+    return (this->p == p);
 }
-bool Ruta::iterator::operator != (const iterator &it){
-    return (this->p != it);
+bool Ruta::iterator::operator!=(const Punto &punto){
+    return (this->p != p);
 }
-bool Ruta::iterator::operator ++ (const iterator &it){
+
+Punto Ruta::iterator::operator*(){
+    return *p;
+}
+
+Ruta::iterator Ruta::iterator::operator++() {
     ++p;
-    return (*this);
+    return *this;
 }
-bool Ruta::iterator::operator * (const iterator &it){}
 
 Ruta::iterator Ruta::begin(){
-    iterator it;
-    it.p = puntos.begin();
+    list<Punto>::iterator it = puntos.begin();
     return it;
 }
 
 Ruta::const_iterator Ruta::begin()const{
-    const_iterator it;
-    it.p = puntos.cbegin();
+    list<Punto>::const_iterator it = puntos.cbegin();
     return it;
 }
 Ruta::iterator Ruta::end(){
-    iterator it;
-    it.p = puntos.end();
+    list<Punto>::iterator it = puntos.end();
     return it;
 }
 Ruta::const_iterator Ruta::end()const{
-    return puntos.cend();
+    list<Punto>::const_iterator it = puntos.cend();
+    return it;
 }
 
 Ruta::iterator Ruta::find(const Punto &p){
-    int pos;
-    bool encontrado = false;
+    for (auto it = puntos.begin(); it != puntos.end(); ++it)
+        if (*it == p) return it;
 
-    for(auto it=puntos.begin(); it < !puntos.end() && !encontrado; ++it) {
-        if (*it == p){
-            encontrado = true;
-            pos = it;
-        }
-    }
-
-    return pos;
+    return puntos.end();
 }
 
-friend istream &operator >>(istream &is, Ruta &r){
+istream &operator >>(istream &is, Ruta &r){
     Ruta ruta;
-    //leemos el comentario
+
     if (is.peek()=='#'){
         string a;
         getline(is,a);
@@ -88,13 +98,14 @@ friend istream &operator >>(istream &is, Ruta &r){
 
     Punto puntos;
     while (is>>puntos){
-        ruta.Insertar(P);
+        ruta.Insertar(puntos);
     }
     r=ruta;
     return is;
 }
 
-friend ostream &operator <<(ostream &os, Ruta &r){
+ostream &operator <<(ostream &os, Ruta &r){
+
     Ruta::const_iterator it;
     for (it=r.begin(); it!=r.end(); ++it){
         os<<*it<<"\t";

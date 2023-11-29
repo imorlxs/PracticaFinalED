@@ -7,7 +7,9 @@ set(BASE_FOLDER rutas_aereas)
 include_directories(${BASE_FOLDER}/include)
 
 add_library(image ${BASE_FOLDER}/src/imagen.cpp  ${BASE_FOLDER}/src/imagenES.cpp
-        rutas_aereas/src/Paises.cpp)
+        rutas_aereas/src/Paises.cpp
+        rutas_aereas/include/Ruta.h
+        rutas_aereas/src/Ruta.cpp)
 
 if (EXISTS ${CMAKE_SOURCE_DIR}/${BASE_FOLDER}/src/pruebarotacion.cpp)
 add_executable(pruebarotacion ${BASE_FOLDER}/src/pruebarotacion.cpp)

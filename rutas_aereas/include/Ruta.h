@@ -29,10 +29,10 @@ public:
         list<Punto>::iterator  p;
     public:
         iterator();
-        bool operator == (const iterator &it);
-        bool operator != (const iterator &it);
-        bool operator ++ (const iterator &it);
-        bool operator * (const iterator &it);
+        bool operator == (const Punto &punto);
+        bool operator != (const Punto &punto);
+        iterator operator ++ ();
+        Punto operator * ();
 
     };
     class const_iterator{
