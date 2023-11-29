@@ -124,7 +124,7 @@ void Imagen::LeerImagen(const char *nombre, const string &nombremascara) {
         I.data[posi][posj].r = aux[i];
         I.data[posi][posj].g = aux[i + 1];
         I.data[posi][posj].b = aux[i + 2];
-        if (aux_mask != 0)
+        if (aux_mask != nullptr)
             I.data[posi][posj].transp = aux_mask[i / 3];
         else
             I.data[posi][posj].transp = 255;
@@ -174,7 +174,7 @@ bool Imagen::Empty() const {
 
 void Imagen::Borrar() {
     if (!Empty()) {
-        for (int i = 0; i < nc; i++) {
+        for (int i = 0; i < nf; i++) {
             delete[] data[i];
         }
         delete[] data;
