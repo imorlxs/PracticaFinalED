@@ -24,16 +24,17 @@ Imagen::~Imagen() {
 
 
 void Imagen::Allocate(int f, int c) {
+    const unsigned char VALOR_DEFECTO_PIXEL = 255;
     nf = f;
     nc = c;
     data = new Pixel *[nf];
     for (int i = 0; i < nf; i++) {
         data[i] = new Pixel[nc];
         for (int j = 0; j < nc; j++) {
-            data[i][j].r = 255;
-            data[i][j].g = 255;
-            data[i][j].b = 255;
-            data[i][j].transp = 255;
+            data[i][j].r = VALOR_DEFECTO_PIXEL;
+            data[i][j].g = VALOR_DEFECTO_PIXEL;
+            data[i][j].b = VALOR_DEFECTO_PIXEL;
+            data[i][j].transp = VALOR_DEFECTO_PIXEL;
         }
     }
 
@@ -110,7 +111,7 @@ void Imagen::LeerImagen(const char *nombre, const string &nombremascara) {
         aux_mask = new unsigned char[fm * cm];
         LeerImagenPGM(nombremascara.c_str(), fm, cm, aux_mask);
     } else {
-        aux_mask = 0;
+        aux_mask = nullptr;
     }
 
 
