@@ -20,7 +20,11 @@ bool Pais::operator<(const Pais &P)const{
     return (this->p < P.GetPunto());
 }
 bool Pais::operator==(const Pais &P)const{
-    return (p == P.GetPunto());
+    return (this->p == P.GetPunto());
+}
+
+bool Pais::operator!=(const Pais &P)const{
+    return (this->p != P.GetPunto());
 }
 
 istream & operator>>(istream & is, Pais & P){

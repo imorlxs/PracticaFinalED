@@ -25,13 +25,23 @@ public:
     public:
         friend class Paises;
         friend class const_iterator;
+
+        iterator(){}
+        bool operator != (Pais &pais);
+        bool operator == (Pais &pais);
+        iterator operator ++ ();
+        iterator operator * ();
     };
     class const_iterator{
     private:
         set<Pais>::const_iterator p;
     public:
-        ..........
-        ...........
+        const_iterator();
+        bool operator != (Pais &pais);
+        bool operator == (Pais &pais);
+        const_iterator operator ++ ();
+        const_iterator operator * () const;
+
         friend class Paises;
 
     };

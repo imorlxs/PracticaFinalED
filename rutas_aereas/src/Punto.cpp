@@ -30,11 +30,17 @@ bool Punto::operator==(const Punto &p) const {
     return (this->latitud == p.getLatitud() && this->longitud == p.getLongitud());
 }
 
+bool Punto::operator != (const Punto &p) const {
+    (this->latitud != p.getLatitud() || (this->latitud == p.getLatitud() && this->longitud != p.getLongitud()));
+}
+
 istream &operator >>(istream &is, Punto &p){
     double lat,lng;
 
     is>>lat>>lng;
-    p=Punto(lat,lng,"");
+    Punto punto;
+    punto.setLatitud(lat);
+    punto.setLongitud(lng);
 
     return is;
 }

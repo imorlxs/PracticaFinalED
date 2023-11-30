@@ -3,80 +3,60 @@
 //
 
 #include "../include/Paises.h"
+#include "istream"
+#include "ostream"
+using namespace std;
 
 void Paises::Insertar(const Pais &P){
     datos.insert(P);
 }
-
 
 void Paises::Borrar(const Pais &P){
     if (this->datos.find(P) != this->datos.end())
         datos.erase(P);
 }
 
-/*class const_iterator;
-class iterator{
-private:
-    set<Pais>::iterator p;
-public:
-    ............
-    ..............
-    .............
-    .	    .........
-    friend class Paises;
-    friend class const_iterator;
-};
-class const_iterator{
-private:
-    set<Pais>::const_iterator p;
-public:
-    ..........
-    ...........
-    friend class Paises;
-
-};
- */
-iterator Paises::begin(){
+Paises::iterator Paises::begin(){
     iterator it;
     it.p = datos.begin();
     return it;
 }
 
-const_iterator Paises::begin()const{
+Paises::const_iterator Paises::begin()const{
     const_iterator it;
     it.p = datos.cbegin();
     return it;
 }
 
-iterator Paises::end(){
+Paises::iterator Paises::end(){
     iterator it;
     it.p = datos.end();
     return it;
 }
 
-const_iterator Paises::end()const{
+Paises::const_iterator Paises::end()const{
     const_iterator it;
     it.p = datos.cend();
     return it;
 }
 
-iterator Paises::find(const Pais &p){
+Paises::iterator Paises::find(const Pais &p){
     iterator it;
     set<Pais>::iterator i;
-    for (i=datos.begin(); i!=datos.end() && !((*i)==p);++i);
+    for (i=datos.begin(); i != datos.end() && !((*i)==p);++i);
     it.p=i;
     return it;
 }
 
-iterator Paises::find(const Punto &p){
+Paises::iterator Paises::find(const Punto &punto){
     iterator it;
     set<Pais>::iterator i;
-    for(i = datos.begin(); i != datos.end() && !((*i.p->GetPunto()) == p); ++i);
-    it.p=i->GetPunto();
+    for(i = datos.begin(); i != datos.end() && !(i->GetPunto() == punto); ++i);
+    it.p = i;
     return it;
 }
 
-friend istream & operator>>(istream & is, Paises & R){
+istream & operator>>(istream & is, Paises & R){
     Paises rlocal;
     //leemos el comentario
     if (is.peek()=='#'){
@@ -91,11 +71,49 @@ friend istream & operator>>(istream & is, Paises & R){
     R=rlocal;
     return is;
 }
-friend ostream & operator<<(ostream & os, const Paises &R){
+
+ostream & operator<<(ostream & os, const Paises &R){
 
     Paises::const_iterator it;
-    for (it=R.begin(); it!=R.end(); ++it){
+    for (it=R.begin(); it != R.end(); ++it){
         os<<*it<<"\t";
     }
     return os;
+}
+
+//Class iterator
+bool Paises::iterator::operator != (Pais &pais){
+    return (*p != pais);
+}
+
+bool Paises::iterator::operator == (Pais &pais){
+    return (*p == pais);
+}
+
+Paises::iterator Paises::iterator::operator ++ (){
+    ++p;
+    return *this;
+}
+
+Paises::iterator Paises::iterator::operator* (){
+    return *this;
+    //No entiendo por que da error si pongo return *p
+}
+
+//Class const_iterator
+bool Paises::const_iterator::operator != (Pais &pais){
+    return (*p != pais);
+}
+
+bool Paises::const_iterator::operator == (Pais &pais){
+    return (*p == pais);
+}
+
+Paises::const_iterator Paises::const_iterator::operator ++ (){
+    ++p;
+    return *this;
+}
+
+Paises::const_iterator Paises::const_iterator::operator* () const{
+    return *this;
 }

@@ -27,7 +27,7 @@ public:
 
     bool operator==(const Pais &P)const;
 
-    bool operator==(const Punto &P)const;
+    bool operator!=(const Pais &P)const;
 
     friend istream & operator>>(istream & is, Pais & P);
 
