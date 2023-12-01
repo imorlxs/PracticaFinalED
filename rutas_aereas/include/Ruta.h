@@ -28,22 +28,28 @@ public:
     private:
         list<Punto>::iterator  p;
     public:
-        iterator();
+        friend class Ruta;
+
+        iterator(): p() {}
         bool operator == (const Punto &punto);
         bool operator != (const Punto &punto);
         iterator operator ++ ();
         Punto operator * ();
+
 
     };
     class const_iterator{
     private:
         list<Punto>::const_iterator p;
     public:
-        const_iterator();
+        friend class Ruta;
+
+        const_iterator(): p(){}
         bool operator == (const Punto &punto);
         bool operator != (const Punto &punto);
-        iterator operator ++ ();
+        const_iterator operator ++ ();
         Punto operator * () const;
+
     };
 
     iterator begin();

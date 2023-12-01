@@ -33,7 +33,7 @@ public:
 
     friend istream &operator >>(istream &is, Punto &p);
 
-    friend ostream &operator << (ostream &os, const Punto &p);
+    friend ostream &operator <<(ostream &os, const Punto &p);
 };
 
 

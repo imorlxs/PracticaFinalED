@@ -75,11 +75,12 @@ istream & operator>>(istream & is, Paises & R){
 ostream & operator<<(ostream & os, const Paises &R){
 
     Paises::const_iterator it;
-    for (it=R.begin(); it != R.end(); ++it){
-        os<<*it<<"\t";
+    for (it = R.begin(); it != R.end(); ++it){
+        os << *it << "\t";
     }
     return os;
 }
+
 
 //Class iterator
 bool Paises::iterator::operator != (Pais &pais){
