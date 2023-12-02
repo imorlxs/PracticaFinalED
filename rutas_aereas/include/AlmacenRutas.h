@@ -21,9 +21,11 @@ public:
     private:
         map<string, Ruta>::iterator p;
     public:
+        friend AlmacenRutas;
+
         iterator(){}
-        bool operator == (AlmacenRutas &almacen);
-        bool operator != (AlmacenRutas &almacen);
+        bool operator == (const Ruta &ruta);
+        bool operator != (const Ruta &ruta);
         iterator operator ++();
         iterator operator *();
 
@@ -33,11 +35,13 @@ public:
     private:
         map<string, Ruta>::const_iterator p;
     public:
+        friend AlmacenRutas;
+
         const_iterator(){}
-        bool operator == (AlmacenRutas &almacen);
-        bool operator != (AlmacenRutas &almacen);
+        bool operator == (const Ruta &ruta);
+        bool operator != (const Ruta &ruta);
         const_iterator operator ++();
-        const_iterator operator *();
+        const_iterator operator *() const;
 
     };
 

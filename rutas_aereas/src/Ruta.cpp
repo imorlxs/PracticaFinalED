@@ -124,8 +124,6 @@ Ruta::iterator Ruta::find(const Punto &p){
 }
 
 istream &operator >>(istream &is, Ruta &r){
-    Ruta ruta;
-
     if (is.peek()=='#'){
         string a;
         getline(is,a);
@@ -133,9 +131,9 @@ istream &operator >>(istream &is, Ruta &r){
 
     Punto puntos;
     while (is >> puntos){
-        ruta.Insertar(puntos);
+        r.Insertar(puntos);
     }
-    r=ruta;
+
     return is;
 }
 
