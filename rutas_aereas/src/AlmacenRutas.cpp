@@ -96,7 +96,7 @@ bool AlmacenRutas::const_iterator::operator == (const Ruta &ruta){
     return (p->first==ruta.GetCode() && p->second == ruta);
 }
 bool AlmacenRutas::const_iterator::operator != (const Ruta &ruta){
-    return (p->first!=ruta.GetCode() || p->second == ruta);
+    return (p->first!=ruta.GetCode() || p->second != ruta);
 }
 AlmacenRutas::const_iterator AlmacenRutas::const_iterator::operator ++(){
     ++p;
@@ -105,3 +105,4 @@ AlmacenRutas::const_iterator AlmacenRutas::const_iterator::operator ++(){
 AlmacenRutas::const_iterator AlmacenRutas::const_iterator::operator *() const{
     return *this;
 }
+

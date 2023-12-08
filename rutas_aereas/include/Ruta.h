@@ -36,7 +36,6 @@ public:
         iterator operator ++ ();
         Punto operator * ();
 
-
     };
     class const_iterator{
     private:
@@ -50,6 +49,7 @@ public:
         const_iterator operator ++ ();
         Punto operator * () const;
 
+        bool operator!=(const_iterator it);
     };
 
     iterator begin();

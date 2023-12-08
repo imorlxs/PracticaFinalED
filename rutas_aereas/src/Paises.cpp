@@ -73,10 +73,10 @@ istream & operator>>(istream & is, Paises & R){
 }
 
 ostream & operator<<(ostream & os, const Paises &R){
-    //Paises::const_iterator it    ??????????????????????????
     for (auto it = R.begin(); it != R.end(); ++it){
-        os << *it << "\t";
+        os<< *it <<"\t";
     }
+    return os;
     return os;
 }
 
@@ -116,4 +116,8 @@ Paises::const_iterator Paises::const_iterator::operator ++ (){
 
 Paises::const_iterator Paises::const_iterator::operator* () const{
     return *this;
+}
+
+bool Paises::const_iterator::operator!=(Paises::const_iterator it){
+    return *this != it;
 }

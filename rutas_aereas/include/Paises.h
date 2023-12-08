@@ -44,6 +44,7 @@ public:
 
         friend class Paises;
 
+        bool operator!=(const_iterator it);
     };
 
     iterator begin();

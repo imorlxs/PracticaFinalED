@@ -38,6 +38,7 @@ public:
         friend AlmacenRutas;
 
         const_iterator(){}
+
         bool operator == (const Ruta &ruta);
         bool operator != (const Ruta &ruta);
         const_iterator operator ++();

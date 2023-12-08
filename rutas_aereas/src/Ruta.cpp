@@ -143,3 +143,7 @@ ostream &operator <<(ostream &os, const Ruta &r){
     }
     return os;
 }
+
+bool Ruta::const_iterator::operator!=(Ruta::const_iterator it){
+    return *this != it;
+}
