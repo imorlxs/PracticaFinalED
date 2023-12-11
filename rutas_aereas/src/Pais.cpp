@@ -36,6 +36,6 @@ istream & operator>>(istream & is, Pais & P){
     return is;
 }
 ostream & operator<<(ostream & os, const Pais &P){
-    os<<P.p<<" "<<P.pais<<" "<<P.bandera<<endl;
+    os<<P.p<<"\t"<<P.pais<<"\t"<<P.bandera;
     return os;
 }
