@@ -102,7 +102,7 @@ Ruta::iterator Ruta::begin() {
     return it;
 }
 
-Ruta::const_iterator Ruta::begin() const {
+Ruta::const_iterator Ruta::cbegin() const {
     const_iterator it;
     it.p = puntos.cbegin();
     return it;
@@ -114,26 +114,20 @@ Ruta::iterator Ruta::end() {
     return it;
 }
 
-Ruta::const_iterator Ruta::end() const {
+Ruta::const_iterator Ruta::cend() const {
     const_iterator it;
     it.p = puntos.cend();
     return it;
 }
 
 Ruta::iterator Ruta::find(const Punto &p) {
-    iterator it;
-    list<Punto>::iterator aux;
-    for (aux = puntos.begin(); aux != puntos.end() && !((*aux) == p); ++it);
-    it.p = aux;
+    Ruta::iterator it;
+    for (auto aux = puntos.begin(); aux != puntos.end() && ((*aux) != p); ++it)
+        it.p = aux;
     return it;
 }
 
 istream &operator>>(istream &is, Ruta &r) {
-    if (is.peek() == '#') {
-        string a;
-        getline(is, a);
-    }
-
     Punto puntos;
     while (is >> puntos) {
         r.Insertar(puntos);
@@ -143,7 +137,7 @@ istream &operator>>(istream &is, Ruta &r) {
 }
 
 ostream &operator<<(ostream &os, const Ruta &r) {
-    for (auto it = r.begin(); it != r.end(); ++it) {
+    for (auto it = r.cbegin(); it != r.cend(); ++it) {
         os << *it << "\t";
     }
     return os;
