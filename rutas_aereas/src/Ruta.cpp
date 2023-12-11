@@ -128,9 +128,14 @@ Ruta::iterator Ruta::find(const Punto &p) {
 }
 
 istream &operator>>(istream &is, Ruta &r) {
-    Punto puntos;
-    while (is >> puntos) {
-        r.Insertar(puntos);
+    is >> r.code;
+    int nPuntos;
+    is >> nPuntos;
+
+    Punto punto;
+    for (int i = 0; i < nPuntos; i++){
+        is >> punto;
+        r.Insertar(punto);
     }
 
     return is;
