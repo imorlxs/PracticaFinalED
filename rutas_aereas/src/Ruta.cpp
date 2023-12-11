@@ -7,7 +7,6 @@
 #include "ostream"
 
 Ruta::Ruta() {
-    for (auto it = puntos.begin(); it != puntos.end(); ++it) *it = Punto();
     code = "";
 }
 
