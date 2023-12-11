@@ -15,7 +15,7 @@ public:
         latitud = longitud = 0;
     }
 
-    Punto(float lat, float lon, const string &d): latitud(lat), longitud(lon){}
+    Punto(double lat, double lon, const string &d): latitud(lat), longitud(lon){}
 
     double getLatitud() const;
 
