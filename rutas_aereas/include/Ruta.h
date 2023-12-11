@@ -21,7 +21,7 @@ public:
 
     void Borrar(const Punto &n);
 
-    string GetCode() const;
+    const string& GetCode() const;
 
     void SetCode(const string &code);
 

@@ -25,7 +25,7 @@ void Ruta::Borrar(const Punto &n) {
 
 }
 
-string Ruta::GetCode() const {
+const string& Ruta::GetCode() const {
     return code;
 }
 
