@@ -142,6 +142,9 @@ istream &operator>>(istream &is, Ruta &r) {
 }
 
 ostream &operator<<(ostream &os, const Ruta &r) {
+    os << r.code << "\t";
+    os << r.puntos.size() << "\t";
+
     for (auto it = r.cbegin(); it != r.cend(); ++it) {
         os << *it << "\t";
     }

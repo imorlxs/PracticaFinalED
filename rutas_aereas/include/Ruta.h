@@ -76,7 +76,7 @@ public:
 
     friend istream &operator>>(istream &is, Ruta &r);
 
-    friend ostream &operator<<(ostream &os, Ruta &r);
+    friend ostream &operator<<(ostream &os, const Ruta &r);
 
 };
 
