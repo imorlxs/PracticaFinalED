@@ -64,6 +64,7 @@ bool Ruta::iterator::operator==(const Ruta::iterator &otro) {
 }
 
 bool Ruta::iterator::operator!=(const Ruta::iterator &otro) {
+    // Basado en el operador == por si cambia la representación
     return !(*this == otro);
 }
 
