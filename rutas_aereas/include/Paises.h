@@ -29,13 +29,13 @@ public:
 
         iterator() {}
 
-        bool operator!=(Pais &pais);
+        bool operator!=(Paises::iterator otro) const;
 
-        bool operator==(Pais &pais);
+        bool operator==(Paises::iterator otro) const;
 
         iterator operator++();
 
-        iterator operator*();
+        const Pais& operator*();
     };
 
     class const_iterator {
@@ -44,26 +44,25 @@ public:
     public:
         const_iterator();
 
-        bool operator!=(Pais &pais);
+        bool operator!=(Paises::const_iterator otro) const;
 
-        bool operator==(Pais &pais);
+        bool operator==(Paises::const_iterator otro) const;
 
         const_iterator operator++();
 
-        const_iterator operator*() const;
+        const Pais& operator*() const;
 
         friend class Paises;
 
-        bool operator!=(const_iterator it);
     };
 
     iterator begin();
 
-    const_iterator begin() const;
+    const_iterator cbegin() const;
 
     iterator end();
 
-    const_iterator end() const;
+    const_iterator cend() const;
 
     iterator find(const Pais &p);
 
