@@ -16,52 +16,67 @@ private:
 
 public:
     Ruta();
+
     void Insertar(const Punto &n);
+
     void Borrar(const Punto &n);
+
     string GetCode() const;
 
-    void SetCode( const string &code);
-    bool operator == (const Ruta &r) const;
-    bool operator < (const Ruta &r) const;
+    void SetCode(const string &code);
 
-    class iterator{
+    bool operator==(const Ruta &r) const;
+
+    bool operator<(const Ruta &r) const;
+
+    class iterator {
     private:
-        list<Punto>::iterator  p;
+        list<Punto>::iterator p;
     public:
         friend class Ruta;
 
-        iterator(): p() {}
-        bool operator == (const Punto &punto);
-        bool operator != (const Punto &punto);
-        iterator operator ++ ();
-        Punto operator * ();
+        iterator() : p() {}
+
+        bool operator==(const Ruta::iterator &otro);
+
+        bool operator!=(const Ruta::iterator &otro);
+
+        iterator& operator++();
+
+        Punto& operator*();
 
     };
-    class const_iterator{
+
+    class const_iterator {
     private:
         list<Punto>::const_iterator p;
     public:
         friend class Ruta;
 
-        const_iterator(): p(){}
-        bool operator == (const Punto &punto);
-        bool operator != (const Punto &punto);
-        const_iterator operator ++ ();
-        Punto operator * () const;
+        const_iterator() : p() {}
 
-        bool operator!=(const_iterator it);
+        bool operator==(const Ruta::const_iterator &otro);
+
+        bool operator!=(const Ruta::const_iterator &otro);
+
+        const_iterator operator++();
+
+        const Punto& operator*() const;
     };
 
     iterator begin();
+
     const_iterator begin() const;
 
     iterator end();
+
     const_iterator end() const;
 
     iterator find(const Punto &p);
 
-    friend istream &operator >>(istream &is, Ruta &r);
-    friend ostream &operator <<(ostream &os, Ruta &r);
+    friend istream &operator>>(istream &is, Ruta &r);
+
+    friend ostream &operator<<(ostream &os, Ruta &r);
 
 };
 
