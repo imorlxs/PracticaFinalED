@@ -34,7 +34,8 @@ void Ruta::SetCode(const string &code) {
 }
 
 bool Ruta::operator==(const Ruta &r) const {
-    if (this->puntos.size() == r.puntos.size() && this->code == r.code) {
+
+    if (this->puntos.size() == r.puntos.size()) {
 
         auto it = this->puntos.begin();
         auto it_r = r.puntos.begin();
@@ -42,7 +43,8 @@ bool Ruta::operator==(const Ruta &r) const {
         bool igual = true;
 
         while (it != puntos.end() && igual) {
-            if (*it != *it_r) igual = false;
+            if (*it != *it_r)
+                igual = false;
             ++it;
             ++it_r;
         }
@@ -65,11 +67,11 @@ bool Ruta::iterator::operator!=(const Ruta::iterator &otro) {
     return !(*this == otro);
 }
 
-Punto& Ruta::iterator::operator*() {
+Punto &Ruta::iterator::operator*() {
     return *p;
 }
 
-Ruta::iterator& Ruta::iterator::operator++() {
+Ruta::iterator &Ruta::iterator::operator++() {
     ++p;
     return *this;
 }
@@ -83,7 +85,7 @@ bool Ruta::const_iterator::operator!=(const Ruta::const_iterator &otro) {
     return !(*this == otro);
 }
 
-const Punto& Ruta::const_iterator::operator*() const {
+const Punto &Ruta::const_iterator::operator*() const {
     return *p;
 }
 
