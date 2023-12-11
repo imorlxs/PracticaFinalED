@@ -61,7 +61,7 @@ public:
 
         const_iterator operator++();
 
-        const Punto& operator*() const;
+        Punto& operator*() const;
     };
 
     iterator begin();

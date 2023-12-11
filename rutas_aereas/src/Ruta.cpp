@@ -86,7 +86,7 @@ bool Ruta::const_iterator::operator!=(const Ruta::const_iterator &otro) {
     return !(*this == otro);
 }
 
-const Punto &Ruta::const_iterator::operator*() const {
+Punto &Ruta::const_iterator::operator*() const {
     return *p;
 }
 
