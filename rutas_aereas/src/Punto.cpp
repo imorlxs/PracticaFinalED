@@ -31,7 +31,7 @@ bool Punto::operator==(const Punto &p) const {
 }
 
 bool Punto::operator != (const Punto &p) const {
-    return (this->latitud != p.getLatitud() || (this->latitud == p.getLatitud() && this->longitud != p.getLongitud()));
+    return !(*this == p);
 }
 
 istream &operator >>(istream &is, Punto &p){
