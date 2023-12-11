@@ -37,9 +37,9 @@ public:
 
         iterator() : p() {}
 
-        bool operator==(const Ruta::iterator &otro);
+        bool operator==(const Ruta::iterator &otro) const;
 
-        bool operator!=(const Ruta::iterator &otro);
+        bool operator!=(const Ruta::iterator &otro) const;
 
         iterator& operator++();
 
@@ -55,13 +55,13 @@ public:
 
         const_iterator() : p() {}
 
-        bool operator==(const Ruta::const_iterator &otro);
+        bool operator==(const Ruta::const_iterator &otro) const;
 
-        bool operator!=(const Ruta::const_iterator &otro);
+        bool operator!=(const Ruta::const_iterator &otro) const;
 
         const_iterator operator++();
 
-        Punto& operator*() const;
+        const Punto& operator*() const;
     };
 
     iterator begin();

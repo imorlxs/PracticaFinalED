@@ -59,11 +59,11 @@ bool Ruta::operator<(const Ruta &r) const {
 }
 
 //Funciones clase iterador
-bool Ruta::iterator::operator==(const Ruta::iterator &otro) {
+bool Ruta::iterator::operator==(const Ruta::iterator &otro) const{
     return p == otro.p;
 }
 
-bool Ruta::iterator::operator!=(const Ruta::iterator &otro) {
+bool Ruta::iterator::operator!=(const Ruta::iterator &otro) const{
     // Basado en el operador == por si cambia la representación
     return !(*this == otro);
 }
@@ -78,15 +78,15 @@ Ruta::iterator &Ruta::iterator::operator++() {
 }
 
 //Funciones clase const_iterator
-bool Ruta::const_iterator::operator==(const Ruta::const_iterator &otro) {
+bool Ruta::const_iterator::operator==(const Ruta::const_iterator &otro) const{
     return p == otro.p;
 }
 
-bool Ruta::const_iterator::operator!=(const Ruta::const_iterator &otro) {
+bool Ruta::const_iterator::operator!=(const Ruta::const_iterator &otro) const{
     return !(*this == otro);
 }
 
-Punto &Ruta::const_iterator::operator*() const {
+const Punto &Ruta::const_iterator::operator*() const {
     return *p;
 }
 
