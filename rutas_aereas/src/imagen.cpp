@@ -179,7 +179,6 @@ void Imagen::Borrar() {
         }
         delete[] data;
     }
-
 }
 
 Imagen &Imagen::operator=(const Imagen &I) {
