@@ -40,7 +40,7 @@ istream &operator >>(istream &is, Punto &p){
     getline(is, numero, ','); // Extrae la latitud, sin extraer la coma
     p.latitud = stof(numero);
 
-    getline(is, numero, ','); // Extrae la longitud, sin extraer el ')'
+    getline(is, numero, ')'); // Extrae la longitud, sin extraer el ')'
     p.longitud = stof(numero);
 
     return is;
