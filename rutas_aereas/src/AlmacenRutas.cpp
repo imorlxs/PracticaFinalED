@@ -79,7 +79,7 @@ bool AlmacenRutas::iterator::operator == (const Ruta &ruta){
 }
 
 bool AlmacenRutas::iterator::operator != (const Ruta &ruta){
-    return (p->first!=ruta.GetCode() || p->second == ruta);
+    return (p->first!=ruta.GetCode() || p->second != ruta);
 }
 
 AlmacenRutas::iterator AlmacenRutas::iterator::operator ++(){
