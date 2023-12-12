@@ -27,6 +27,8 @@ public:
 
     bool operator==(const Ruta &r) const;
 
+    bool operator!=(const Ruta &r) const;
+
     bool operator<(const Ruta &r) const;
 
     class iterator {

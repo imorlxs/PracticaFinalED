@@ -35,7 +35,7 @@ void Ruta::SetCode(const string &code) {
 
 bool Ruta::operator==(const Ruta &r) const {
 
-    if (this->puntos.size() == r.puntos.size()) {
+    if (this->puntos.size() == r.puntos.size() && this->code == r.GetCode()) {
 
         auto it = this->puntos.begin();
         auto it_r = r.puntos.begin();
@@ -52,6 +52,10 @@ bool Ruta::operator==(const Ruta &r) const {
         return igual;
     }
     return false;
+}
+
+bool Ruta::operator!=(const Ruta &r) const {
+    return !(*this == r);
 }
 
 bool Ruta::operator<(const Ruta &r) const {
