@@ -10,12 +10,14 @@ using namespace std;
 class Punto {
 private:
     double latitud, longitud;
+    string description;
 public:
     Punto(){
         latitud = longitud = 0;
+        this->description = "";
     }
 
-    Punto(double lat, double lon, const string &d): latitud(lat), longitud(lon){}
+    Punto(double lat, double lon, const string &d): latitud(lat), longitud(lon), description(d){}
 
     double getLatitud() const;
 
