@@ -18,7 +18,10 @@ private:
     string bandera;
 
 public:
-    Pais(){}
+    Pais(){
+        this->p = Punto();
+        this->pais = this->bandera = "";
+    }
     Punto GetPunto() const;
     string GetPais() const;
     string GetBandera() const;
