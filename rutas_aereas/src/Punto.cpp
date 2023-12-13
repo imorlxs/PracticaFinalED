@@ -22,12 +22,16 @@ void Punto::setLongitud(double lon){
     longitud = lon;
 }
 
+string Punto::getDescription() const {
+    return description;
+}
+
 bool Punto::operator<(const Punto &p) const {
     return (this->latitud < p.getLatitud() || (this->latitud == p.getLatitud() && this->longitud < p.getLongitud()));
 }
 
 bool Punto::operator==(const Punto &p) const {
-    return (this->latitud == p.getLatitud() && this->longitud == p.getLongitud());
+    return (this->latitud == p.getLatitud() && this->longitud == p.getLongitud() && this->description == p.getDescription());
 }
 
 bool Punto::operator != (const Punto &p) const {

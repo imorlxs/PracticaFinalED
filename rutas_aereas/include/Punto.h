@@ -29,18 +29,23 @@ Punto(){
 Punto(double lat, double lon, const string &d): latitud(lat), longitud(lon), description(d){}
 
 /**
-  * @brief saber el valor de la latitud de un punto
+  * @brief saber el valor de la latitud de un objeto punto
  * @return el atributo privado latitud
  */
 
 double getLatitud() const;
 
 /**
- * @brief saber el valor de la longitud de un punto
+ * @brief saber el valor de la longitud de un objeto punto
  * @return el atributo privado longitud
  */
 double getLongitud() const;
 
+/**
+ * @brief saber la descripción de un objeto punto
+ * @return el atributo privado longitud
+ */
+string getDescription() const;
 /**
  * @brief sustituir la latitud de un punto por el parámetro lat
  * @param lat latitud de un punto
@@ -54,7 +59,7 @@ void setLatitud(double lat);
 void setLongitud(double lon);
 
 /**
- * @brief evaluar si un punto es menor que un objeto Punto (comparando latitid, longitud y descripción)
+ * @brief sobrecarga del operador de comparación menor que para la clase Punto
  * @param p punto a comparar
  * @return true si un punto es menor que otro o false si es mayor
  */
