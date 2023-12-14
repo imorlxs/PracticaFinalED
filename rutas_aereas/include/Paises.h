@@ -74,10 +74,8 @@ public:
     };
 
     /**
- * @brief Clase const_iterator para la clase Paises.
- *
- * Esta clase proporciona un iterador constante para la clase Paises, permitiendo recorrer sus elementos de manera inmutable.
- */
+     * @brief Clase const_iterator para la clase Paises.
+     */
     class const_iterator {
     private:
         set<Pais>::const_iterator p;
@@ -118,21 +116,59 @@ public:
     };
 
 
+    /**
+     * @brief primer elemento set
+     * @return devuelve el iterador que señala al primer elemento del conjunto
+    */
     iterator begin();
 
+    /**
+     * @brief primer elemento set
+     * @return devuelve el iterador constante que señala al primer elemento del conjunto
+    */
     const_iterator cbegin() const;
 
+    /**
+     * @brief último elemento set
+     * @return devuelve el iterador que señala al último elemento del conjunto
+    */
     iterator end();
 
+    /**
+     * @brief último elemento set
+     * @return devuelve el iterador constante que señala al último elemento del conjunto
+    */
     const_iterator cend() const;
 
+    /**
+     * @brief buscar un país por objeto Pais
+     * @param p objeto País a buscar
+     * @return iterator al país encontrado
+     */
     iterator find(const Pais &p);
 
+    /**
+     * @brief buscar un país por objeto Punto
+     * @param p objeto Punto a buscar
+     * @return iterator al país encontrado
+     */
     iterator find(const Punto &p);
 
-    friend istream &operator>>(istream &is, Paises &R);
+    /**
+     * @brief sobrecarga del operador de entrada para la clase Paises
+     * @param is flujo de entrada
+     * @param R objeto Paises
+     * @return flujo de entrada actualizado
+     */
+    friend std::istream &operator>>(std::istream &is, Paises &R);
 
-    friend ostream &operator<<(ostream &os, const Paises &R);
+    /**
+     * @brief sobrecarga del operador de salida para la clase Paises
+     * @param os flujo de salida
+     * @param R objeto Paises
+     * @return flujo de salida actualizado
+     */
+    friend std::ostream &operator<<(std::ostream &os, const Paises &R);
 };
 
 
