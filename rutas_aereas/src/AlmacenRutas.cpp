@@ -67,7 +67,7 @@ istream &operator>> (istream & is, AlmacenRutas &almacen) {
 
 ostream & operator << (ostream & os, const AlmacenRutas &almacen){
     for(auto it = almacen.rutas.begin(); it != almacen.rutas.end(); ++it){
-        os << (*it).first<< Ruta::iterator &"\t" << (*it).second;
+        os << (*it).first<< "\t" << (*it).second;
     }
     return os;
 }
@@ -86,7 +86,7 @@ AlmacenRutas::iterator AlmacenRutas::iterator::operator ++(){
     ++p;
     return *this;
 }
-AlmacenRutas::iterator AlmacenRutas::iterator::operator *(){
+const AlmacenRutas::iterator AlmacenRutas::iterator::operator*(){
     return *this;
 }
 

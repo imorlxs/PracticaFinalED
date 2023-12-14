@@ -101,10 +101,10 @@ public:
         iterator& operator++();
 
         /**
-         * @brief Operador de dereferenciación.
+         * @brief Operador de dereferenciación
          * @return Una referencia constante al objeto Ruta
          */
-        Punto& operator*();
+         const Punto& operator*();
 
     };
 
