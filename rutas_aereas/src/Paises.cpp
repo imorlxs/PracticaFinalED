@@ -93,7 +93,7 @@ Paises::iterator Paises::iterator::operator++() {
     return *this;
 }
 
-const Pais& Paises::iterator::operator*() {
+ const Pais& Paises::iterator::operator*(){
     return *p;
 }
 

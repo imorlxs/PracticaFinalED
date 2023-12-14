@@ -104,7 +104,7 @@ public:
          * @brief Operador de dereferenciación
          * @return Una referencia constante al objeto Ruta
          */
-         const Punto& operator*();
+        Punto& operator*();
 
     };
 
