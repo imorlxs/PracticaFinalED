@@ -71,6 +71,7 @@ int main(int argc, char *argv[]) {
     cout << almacen << endl;
     cout << "Escoja una de las siguientes rutas (introduzca el ID)" << endl;
     string id;
+
     cin >> id;
 
     // 5. Pintar el recorrido de la ruta en el mapa pintando las banderas de

@@ -53,8 +53,12 @@ Paises::iterator Paises::find(const Pais &p) {
 Paises::iterator Paises::find(const Punto &punto) {
     iterator it;
     set<Pais>::iterator i;
-    for (i = datos.begin(); i != datos.end() && (i->GetPunto() != punto); ++i)
+    bool encontrado = false;
+    for (i = datos.begin(); i != datos.end() && !encontrado; ++i){
+        encontrado = (*i).GetPunto() == punto;
         it.p = i;
+    }
+
     return it;
 }
 
