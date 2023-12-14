@@ -69,11 +69,9 @@ int main(int argc, char *argv[]) {
     // 4. Mostrar las rutas y pedirle al usuario que escoja una (pedir un
     //código)
     cout << almacen << endl;
-    cout << "Escoga una de las siguientes rutas (introduzca el ID)" << endl;
+    cout << "Escoja una de las siguientes rutas (introduzca el ID)" << endl;
     string id;
     cin >> id;
-
-
 
     // 5. Pintar el recorrido de la ruta en el mapa pintando las banderas de
     // los países por donde pasa y un avión. Entre dos países se pinta el

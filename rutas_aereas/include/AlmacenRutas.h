@@ -70,7 +70,7 @@ public:
        * @brief Operador de dereferenciación
        * @return Una referencia al iterador
        */
-        iterator operator *();
+        const iterator operator *();
 
     };
 

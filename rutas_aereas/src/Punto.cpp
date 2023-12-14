@@ -31,7 +31,7 @@ bool Punto::operator<(const Punto &p) const {
 }
 
 bool Punto::operator==(const Punto &p) const {
-    return (this->latitud == p.getLatitud() && this->longitud == p.getLongitud() && this->description == p.getDescription());
+    return (this->latitud == p.getLatitud() && this->longitud == p.getLongitud());
 }
 
 bool Punto::operator != (const Punto &p) const {

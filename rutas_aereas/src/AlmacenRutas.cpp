@@ -96,7 +96,7 @@ AlmacenRutas::iterator AlmacenRutas::iterator::operator++() {
     return *this;
 }
 
-AlmacenRutas::iterator AlmacenRutas::iterator::operator*() {
+const AlmacenRutas::iterator AlmacenRutas::iterator::operator*() {
     return *this;
 }
 

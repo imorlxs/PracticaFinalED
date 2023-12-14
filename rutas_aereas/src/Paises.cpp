@@ -2,6 +2,7 @@
 // Created by patriiciacoboss on 28/11/23.
 //
 
+#include <iostream>
 #include "../include/Paises.h"
 #include "istream"
 #include "ostream"

@@ -24,6 +24,7 @@ void PintarRuta(Ruta &ruta, Imagen &mapa, Imagen &avion, Paises &paises, string 
         ++it2;
         if (it2 != ruta.end()) {
             // 1. Buscar el país c1 que se corresponde con el punto p1
+
             auto c1 = paises.find(*it);
 
             // 2. Buscar el país c2 que se corresponde con el punto p2
