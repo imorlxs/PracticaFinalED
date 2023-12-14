@@ -13,7 +13,7 @@ int getColumna(Imagen &mapa, double longitud);
 
 int getFila(Imagen &mapa, double latitud);
 
-void PintarRuta(Ruta &ruta, Imagen &mapa, Imagen &avion, Paises &paises);
+void PintarRuta(Ruta &ruta, Imagen &mapa, Imagen &avion, Paises &paises, string rutabanderas);
 
 
 #endif //PRACTICAFINAL_FUNCIONES_H

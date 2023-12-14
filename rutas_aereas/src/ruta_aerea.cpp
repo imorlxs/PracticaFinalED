@@ -46,7 +46,13 @@ int main(int argc, char *argv[]) {
 
     Paises Pses;
     ifstream f(argv[1]);
-    f >> Pses;
+    if (f) {
+        f >> Pses;
+
+    } else
+        throw std::ios_base::failure(string("error_de_apertura_del_fichero\n"));
+
+    cout << Pses;
     // 1. Leer Imagen del mapa
     Imagen mapa;
     Imagen avion;
@@ -54,7 +60,6 @@ int main(int argc, char *argv[]) {
 
     // 2. Leer imagen del avión y su máscara
     avion.LeerImagen(argv[5], argv[6]);
-    AlmacenRutas Ar;
 
     // 3. Leer el conjunto de rutas (se carga en un almacen de rutas)
     AlmacenRutas almacen;
@@ -73,7 +78,14 @@ int main(int argc, char *argv[]) {
     // 5. Pintar el recorrido de la ruta en el mapa pintando las banderas de
     // los países por donde pasa y un avión. Entre dos países se pinta el
     // avión al principio, final y en el punto medio.
-    Ruta ruta = Ar.getRuta(id);
-    PintarRuta(ruta, mapa, avion, Pses);
+    Ruta ruta = almacen.getRuta(id);
+
+    cout << "Has seleccionado los paises: "  << endl;
+    for (auto it = ruta.begin(); it != ruta.end(); ++it){
+        cout << (*Pses.find(*it)).GetPais() << " ";
+    }
+    PintarRuta(ruta, mapa, avion, Pses, argv[3]);
+
+    mapa.EscribirImagen(argv[2]);
 
 }

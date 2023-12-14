@@ -14,7 +14,7 @@ add_library(image ${BASE_FOLDER}/src/imagen.cpp  ${BASE_FOLDER}/src/imagenES.cpp
         rutas_aereas/src/Punto.cpp
         rutas_aereas/src/AlmacenRutas.cpp
         rutas_aereas/src/Punto.cpp
-        rutas_aereas/include/funciones.cpp
+        rutas_aereas/src/funciones.cpp
         rutas_aereas/include/funciones.h
 )
 
@@ -55,5 +55,3 @@ else (DOXYGEN_FOUND)
 endif (DOXYGEN_FOUND)
 add_executable(pruebaimagen rutas_aereas/src/prueba_imagen.cpp)
 target_link_libraries(pruebaimagen LINK_PUBLIC image)
-add_executable(pintarRuta rutas_aereas/src/ruta_area.cpp
-)

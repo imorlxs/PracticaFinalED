@@ -29,9 +29,12 @@ int main(int argc, char * argv[]){
   int au= atoi(argv[7]);
   if (au!=0)
     tp=BLENDING;
-  
-    
-  I.PutImagen(i,j,Ip,tp);
+
+    double angulo=45;
+    angulo = angulo*(M_PI)/180;
+    Imagen Iout=Rota(Ip,angulo);
+
+  I.PutImagen(i,j,Iout,tp);
   I.EscribirImagen(argv[4]);
   
 }  

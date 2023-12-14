@@ -281,7 +281,7 @@ Imagen Rota(const Imagen & Io,double angulo){
 
             }
             else
-                Iout(rows,cols).r=Iout(rows,cols).g=Iout(rows,cols).b=255;
+                Iout(rows,cols).r=Iout(rows,cols).g=Iout(rows,cols).b=Iout(rows,cols).transp=0;
         }
     }
     return Iout;
@@ -312,7 +312,7 @@ void Pintar( int f1,int f2,int c1,int c2,Imagen &I, const Imagen &avion,int mind
         double angulo = atan2((f2-f1),(c2-c1));
         Imagen Irota=Rota(avion,angulo);
 
-        I.PutImagen(fila,col,Irota);//pensar si debe ser opaco o blending
+        I.PutImagen(fila,col,Irota, OPACO);//pensar si debe ser opaco o blending
 
         angulo = atan2((f2-fila),(c2-col));
         Irota=Rota(avion,angulo);

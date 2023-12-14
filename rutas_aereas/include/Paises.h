@@ -84,7 +84,7 @@ public:
         /**
          * @brief Constructor por defecto del iterador constante
          */
-        const_iterator();
+        const_iterator(){}
 
         /**
          * @brief Operador de comparación de desigualdad

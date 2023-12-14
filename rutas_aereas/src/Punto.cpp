@@ -39,18 +39,19 @@ bool Punto::operator != (const Punto &p) const {
 }
 
 istream &operator >>(istream &is, Punto &p){
-    is.get(); // Extrae el '('
-    string numero;
-    getline(is, numero, ','); // Extrae la latitud, sin extraer la coma
-    p.latitud = stof(numero);
-
-    getline(is, numero, ')'); // Extrae la longitud, sin extraer el ')'
-    p.longitud = stof(numero);
-
+    string basura;
+    getline(is, basura, '('); // Extrae todo hasta el primer numero
+    double numero;
+    is >> numero; // Extrae la latitud, sin extraer la coma
+    p.latitud = numero;
+    getline(is, basura, ','); // Extrae todo hasta la coma
+    is >> numero; // Extrae la longitud, sin extraer el ')'
+    p.longitud = numero;
+    getline(is, basura, ')'); // Extrae todo hasta el final
     return is;
 }
 
-ostream &operator<<(ostream &os, Punto &p){
+ostream &operator<<(ostream &os, const Punto &p){
     os<< '(' << p.getLatitud()<<","<<p.getLongitud()<<')';
 
     return os;
