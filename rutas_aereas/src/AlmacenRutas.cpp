@@ -2,6 +2,7 @@
 // Created by patriiciacoboss on 27/11/23.
 //
 
+#include <fstream>
 #include "../include/AlmacenRutas.h"
 #include "AlmacenRutas.h"
 #include "iostream"
@@ -72,6 +73,10 @@ ostream & operator << (ostream & os, const AlmacenRutas &almacen){
     return os;
 }
 
+void AlmacenRutas::LeerAlmacen(const char *nombre){
+    ifstream f(nombre);
+    f >> *this;
+}
 //Funciones class iterator
 
 bool AlmacenRutas::iterator::operator == (const Ruta &ruta){

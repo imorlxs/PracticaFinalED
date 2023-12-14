@@ -1,0 +1,8 @@
+//
+// Created by isaacm on 14/12/23.
+//
+
+#ifndef PRACTICAFINAL_FUNCIONES_H
+#define PRACTICAFINAL_FUNCIONES_H
+
+#endif //PRACTICAFINAL_FUNCIONES_H

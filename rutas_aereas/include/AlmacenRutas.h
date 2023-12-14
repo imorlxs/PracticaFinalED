@@ -156,6 +156,7 @@ public:
      */
     friend ostream & operator << (ostream & is, const AlmacenRutas &almacen);
 
+    void LeerAlmacen(const char *nombre);
 };
 
 #endif //PRACTICAFINALED_ALMACENRUTAS_H

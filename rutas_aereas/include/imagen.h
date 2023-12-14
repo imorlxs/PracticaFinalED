@@ -201,7 +201,30 @@ public:
      * @return Devuelve true si la imagen está vacía
      */
     bool Empty() const;
+
+
 };
+
+/**
+ * Rota una imagen tantos grados como indique el ángulo
+ * @param Io Imagen a rotar
+ * @param angulo Ángulo a rotar
+ * @return Una nueva imagen rotada
+ */
+Imagen Rota(const Imagen &Io, double angulo);
+
+/**
+ * Pintar un avion en una imagen I dada
+ * @param f1 Fila donde estaba el avion
+ * @param f2 Fila donde estará el avión
+ * @param c1 Columna donde estaba el avión
+ * @param c2 Columna donde estará el avión
+ * @param I Imagen sobre la que pegar
+ * @param avion Imagen del avión
+ * @param mindisf Distancia mínima entre filas
+ * @param mindisc Distancia mínima entre columnas
+ */
+void Pintar(int f1, int f2, int c1, int c2, Imagen &I, const Imagen &avion, int mindisf, int mindisc);
 
 
 #endif //PRACTICAFINALED_IMAGEN_H

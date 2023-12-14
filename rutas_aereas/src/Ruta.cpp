@@ -25,7 +25,7 @@ void Ruta::Borrar(const Punto &n) {
 
 }
 
-const string& Ruta::GetCode() const {
+const string &Ruta::GetCode() const {
     return code;
 }
 
@@ -63,11 +63,11 @@ bool Ruta::operator<(const Ruta &r) const {
 }
 
 //Funciones clase iterador
-bool Ruta::iterator::operator==(const Ruta::iterator &otro) const{
+bool Ruta::iterator::operator==(const Ruta::iterator &otro) const {
     return p == otro.p;
 }
 
-bool Ruta::iterator::operator!=(const Ruta::iterator &otro) const{
+bool Ruta::iterator::operator!=(const Ruta::iterator &otro) const {
     // Basado en el operador == por si cambia la representación
     return !(*this == otro);
 }
@@ -82,11 +82,11 @@ Ruta::iterator &Ruta::iterator::operator++() {
 }
 
 //Funciones clase const_iterator
-bool Ruta::const_iterator::operator==(const Ruta::const_iterator &otro) const{
+bool Ruta::const_iterator::operator==(const Ruta::const_iterator &otro) const {
     return p == otro.p;
 }
 
-bool Ruta::const_iterator::operator!=(const Ruta::const_iterator &otro) const{
+bool Ruta::const_iterator::operator!=(const Ruta::const_iterator &otro) const {
     return !(*this == otro);
 }
 
@@ -101,13 +101,13 @@ Ruta::const_iterator Ruta::const_iterator::operator++() {
 
 //Funciones clase Ruta
 Ruta::iterator Ruta::begin() {
-    iterator it;
+    Ruta::iterator it;
     it.p = puntos.begin();
     return it;
 }
 
 Ruta::const_iterator Ruta::cbegin() const {
-    const_iterator it;
+    Ruta::const_iterator it;
     it.p = puntos.cbegin();
     return it;
 }
@@ -137,7 +137,7 @@ istream &operator>>(istream &is, Ruta &r) {
     is >> nPuntos;
 
     Punto punto;
-    for (int i = 0; i < nPuntos; i++){
+    for (int i = 0; i < nPuntos; i++) {
         is >> punto;
         r.Insertar(punto);
     }

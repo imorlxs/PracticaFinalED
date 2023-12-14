@@ -13,7 +13,10 @@ add_library(image ${BASE_FOLDER}/src/imagen.cpp  ${BASE_FOLDER}/src/imagenES.cpp
         rutas_aereas/src/Pais.cpp
         rutas_aereas/src/Punto.cpp
         rutas_aereas/src/AlmacenRutas.cpp
-        rutas_aereas/src/Punto.cpp)
+        rutas_aereas/src/Punto.cpp
+        rutas_aereas/include/funciones.cpp
+        rutas_aereas/include/funciones.h
+)
 
 if (EXISTS ${CMAKE_SOURCE_DIR}/${BASE_FOLDER}/src/pruebarotacion.cpp)
 add_executable(pruebarotacion ${BASE_FOLDER}/src/pruebarotacion.cpp)
@@ -52,4 +55,5 @@ else (DOXYGEN_FOUND)
 endif (DOXYGEN_FOUND)
 add_executable(pruebaimagen rutas_aereas/src/prueba_imagen.cpp)
 target_link_libraries(pruebaimagen LINK_PUBLIC image)
-add_executable(pintarRuta rutas_aereas/src/pintarRuta.cpp)
+add_executable(pintarRuta rutas_aereas/src/ruta_area.cpp
+)
