@@ -13,11 +13,11 @@ int getColumna(Imagen &mapa, double longitud) {
 
 int getFila(Imagen &mapa, double latitud) {
     int totalfilas = mapa.num_filas();
-    int fila = (totalfilas / 180.0) * (90 - latitud);
+    double fila = (totalfilas / 180.0) * (90 - latitud);
     return fila;
 }
 
-void PintarRuta(Ruta &ruta, Imagen &mapa, Imagen &avion, Paises &paises, string rutabanderas) {
+void PintarRuta(Ruta &ruta, Imagen &mapa, Imagen &avion, Paises &paises, const string &rutabanderas) {
     // 1. Por cada par de puntos p1 y el siguiente p2 de la ruta
     for (Ruta::iterator it = ruta.begin(); it != ruta.end(); ++it) {
         auto it2 = it;
@@ -32,11 +32,11 @@ void PintarRuta(Ruta &ruta, Imagen &mapa, Imagen &avion, Paises &paises, string 
 
             // 3. Leer la imagen de la bandera del país c1
             Imagen imagenc1;
-            imagenc1.LeerImagen((rutabanderas+(*c1).GetBandera()).c_str());
+            imagenc1.LeerImagen((rutabanderas + (*c1).GetBandera()).c_str());
 
             // 4. Leer la imagen de la bandera del país c2
             Imagen imagenc2;
-            imagenc2.LeerImagen((rutabanderas+(*c2).GetBandera()).c_str());
+            imagenc2.LeerImagen((rutabanderas + (*c2).GetBandera()).c_str());
 
             // 5. Obtener la posición en el mapa de p1 sea pos1_mapa
             int fil1_mapa = getFila(mapa, (*it).getLatitud());
@@ -48,12 +48,19 @@ void PintarRuta(Ruta &ruta, Imagen &mapa, Imagen &avion, Paises &paises, string 
 
             // 7. Pegar el avión en el mapa en las posiciones pos1_mapa, pos2_mapa y punto medio de pos1_mapa,
             // pos2_mapa. Antes de pegar rotar el avión según la línea que une pos1_mapa, pos2_mapa.
-            Pintar(fil1_mapa, fil2_mapa, col1_mapa, col2_mapa, mapa, avion, 10, 10);
+            Pintar(fil1_mapa, fil2_mapa, col1_mapa, col2_mapa, mapa, avion, 0, 0);
 
             // 8. Pegar la bandera del país c1 en pos1_mapa
-            mapa.PutImagen(fil1_mapa, col1_mapa, imagenc1,  BLENDING);
+            // Centrar la imagen respecto a la bandera 1
+            fil1_mapa -= imagenc1.num_filas() / 2;
+            col1_mapa -= imagenc1.num_cols() / 2;
+
+            mapa.PutImagen(fil1_mapa, col1_mapa, imagenc1, BLENDING);
 
             // 9. 9. Pegar la bandera del país c2 en pos2_mapa
+            // Centrar la imagen respecto a la bandera 2
+            fil2_mapa -= imagenc2.num_filas() / 2;
+            col2_mapa -= imagenc2.num_cols() / 2;
             mapa.PutImagen(fil2_mapa, col2_mapa, imagenc2, BLENDING);
 
 
