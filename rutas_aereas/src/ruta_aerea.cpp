@@ -1,5 +1,4 @@
-
-/** 
+/**
  * @file ruta_aerea.cpp
  * @author Isaac Morales Santana <imorsan@correo.ugr.es>
  * @author Patricia Cobos Rueda  <pcobosrueda@correo.ugr.es>

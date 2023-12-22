@@ -1,6 +1,7 @@
-//
-// Created by patriiciacoboss on 28/11/23.
-//
+/*
+ * @author Patricia Cobos Rueda <pcobosrueda@correo.ugr.es>
+ * @author Isaac Morales Santana <imorsan@correo.ugr.es>
+ */
 
 #include <iostream>
 #include "../include/Paises.h"

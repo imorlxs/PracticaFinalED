@@ -1,7 +1,7 @@
-//
-// Created by isaacm on 14/12/23.
-//
-
+/*
+ * @author Patricia Cobos Rueda <pcobosrueda@correo.ugr.es>
+ * @author Isaac Morales Santana <imorsan@correo.ugr.es>
+ */
 #include "funciones.h"
 
 

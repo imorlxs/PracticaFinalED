@@ -1,6 +1,7 @@
-//
-// Created by patriiciacoboss on 27/11/23.
-//
+/*
+ * @author Patricia Cobos Rueda <pcobosrueda@correo.ugr.es>
+ * @author Isaac Morales Santana <imorsan@correo.ugr.es>
+ */
 
 #include "../include/Ruta.h"
 #include "iostream"

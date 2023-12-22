@@ -1,7 +1,7 @@
-//
-// Created by patriiciacoboss on 27/11/23.
-//
-
+/*
+ * @author Patricia Cobos Rueda <pcobosrueda@correo.ugr.es>
+ * @author Isaac Morales Santana <imorsan@correo.ugr.es>
+ */
 #include "Pais.h"
 using namespace std;
 #include "iostream"

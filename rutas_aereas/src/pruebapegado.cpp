@@ -1,3 +1,7 @@
+/*
+ * @author Patricia Cobos Rueda <pcobosrueda@correo.ugr.es>
+ * @author Isaac Morales Santana <imorsan@correo.ugr.es>
+ */
 #include "../include/imagen.h"
 #include <iostream>
 #include <cstdlib>

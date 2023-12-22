@@ -1,7 +1,7 @@
-//
-// Created by patriiciacoboss on 27/11/23.
-//
-
+/*
+ * @author Patricia Cobos Rueda <pcobosrueda@correo.ugr.es>
+ * @author Isaac Morales Santana <imorsan@correo.ugr.es>
+ */
 #ifndef PRACTICAFINALED_PAIS_H
 #define PRACTICAFINALED_PAIS_H
 

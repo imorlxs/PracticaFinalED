@@ -1,7 +1,7 @@
-//
-// Created by isaacm on 28/11/23.
-//
-
+/*
+ * @author Patricia Cobos Rueda <pcobosrueda@correo.ugr.es>
+ * @author Isaac Morales Santana <imorsan@correo.ugr.es>
+ */
 #ifndef PRACTICAFINALED_IMAGEN_H
 #define PRACTICAFINALED_IMAGEN_H
 

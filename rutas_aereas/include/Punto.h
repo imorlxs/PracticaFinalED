@@ -1,7 +1,7 @@
-//
-// Created by patriiciacoboss on 27/11/23.
-//
-
+/*
+ * @author Patricia Cobos Rueda <pcobosrueda@correo.ugr.es>
+ * @author Isaac Morales Santana <imorsan@correo.ugr.es>
+ */
 #ifndef PRACTICAFINALED_PUNTO_H
 #define PRACTICAFINALED_PUNTO_H
 #include "string"
