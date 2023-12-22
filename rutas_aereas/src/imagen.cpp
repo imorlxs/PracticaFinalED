@@ -193,7 +193,7 @@ Imagen &Imagen::operator=(const Imagen &I) {
 void Imagen::LimpiarTransp() {
     for (int i = 0; i < nf; i++) {
         for (int j = 0; j < nc; j++) {
-            (*this)(i, j).transp = 255R;
+            (*this)(i, j).transp = 255;
         }
     }
 }

@@ -155,7 +155,11 @@ public:
      * @return flujo de salida actualizado
      */
     friend ostream & operator << (ostream & is, const AlmacenRutas &almacen);
-
+    
+    /**
+    * @brief Método para leer un almacén desde un fichero
+    * @param nombre, nombre del fichero que contiene el almacén.
+    */
     void LeerAlmacen(const char *nombre);
 };
 

@@ -86,7 +86,7 @@ ostream &operator<<(ostream &os, const Paises &R) {
 
 //Class iterator
 bool Paises::iterator::operator==(Paises::iterator otro) const {
-    return (p != otro.p);
+    return (p == otro.p);
 }
 
 bool Paises::iterator::operator!=(Paises::iterator otro) const {

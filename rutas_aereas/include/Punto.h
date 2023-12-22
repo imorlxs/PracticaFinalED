@@ -43,7 +43,7 @@ double getLongitud() const;
 
 /**
  * @brief saber la descripción de un objeto punto
- * @return el atributo privado longitud
+ * @return el atributo privado descripción.
  */
 string getDescription() const;
 /**
